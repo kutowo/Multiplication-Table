@@ -1,0 +1,158 @@
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>The Multiplication Table</title>
+    <meta charset="utf-8">
+    <meta name="description" content="The Multiplication Table">
+    <meta name="keywords" content="The Multiplication Table">
+    <meta name="author" content="Kutowo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/css/the_multiplication_table_fonts-embedded.css">
+    <style>
+        html{
+            color:#8cabd9;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0px;
+            background-color: #0a244d;
+        }
+        header{
+            display: block;
+            padding: 13px;
+            width:100%;
+            text-align: center;
+            background-color: #0a244d;
+            color: #8cabd9;
+        }
+        header h1{
+            display: block;
+            width:100%;
+            text-align: center;
+            float:none;
+        }
+        nav{
+            display: block;
+            width: 100%;
+            background-color: #8cabd9;
+            padding: 13px;
+        }
+        nav span{
+            display: block;
+            float: left;
+            width: 50%;
+            text-align: center;
+            color: #0a244d;
+            font-weight: bold;
+        }
+        article{
+            display: block;
+            width: 100%;
+            float: none;
+            background-color: #0a244d !important;
+        }
+        article h2{
+            display: block;
+            width:100%;
+            text-align: center;
+            float:none;
+        }
+        .column {
+            display: block;
+            width:20%;
+            float:left;
+            padding: 13px;
+        }
+        .column-in{
+            display: block;
+            font-size:33px;
+            text-align: center;
+            border:3px solid #8cabd9;
+            border-radius: 13px;
+            padding: 7px;
+        }
+        .column-in-value:hover,.column-in-value:active,.column-in-value:focus{
+            color: tomato;
+        }
+        .row{
+            /*row*/
+        }
+        .goldButton{
+            display: inline;
+            color: gold;
+        }
+        footer{
+            display: block;
+            width: 100%;
+            padding: 13px;
+            text-align: center;
+            background-color: #8cabd9;
+        }
+        footer a{
+            text-decoration: none;
+            color:#0a244d;
+            font-weight: bold;
+        }
+        @media screen and (max-width: 960px) {
+            .column{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header><h1><i class="icon-the_multiplication_table"></i> Multiplication Table</h1></header>
+    <nav>
+        <span id="ccHideButton" onclick='ccHideOrShow("none");'><i class="icon-hide"></i> Hide</span>
+        <span id="ccShowButton" onclick='ccHideOrShow("inline");' style="display: none;"><i class="icon-show"></i> Show</span>
+        <span onclick='window.location = "index.html";'><i class="icon-refresh"></i> Refresh</span>
+        <div style="clear: both;"></div>
+    </nav>
+    <article>
+        <script type="text/javascript">
+            //The Multiplication Table Start
+            document.write("<div id='table'>");
+            for (var i = 1; i <= 10; i++) {        
+                document.write("<div id='c"+i+"' class='column'><div class='column-in'>");
+                for (var j = 1; j <= 10; j++) {
+                    document.write("<div class='row'>" + i + " x " + j + " =<span id='cc"+i+"-"+j+"'> " + i * j + " </span>                      <span id='ccc"+i+"-"+j+"' onclick='ccShow(\"cc"+i+"-"+j+"\");                                   this.style.display =\"none\"' style='display:none;' class='goldButton'> ? </span></div>");
+                }
+                document.write("</div></div>");
+            }    
+            document.write("</div>");
+            //The Multiplication Table End
+            //ccHideOrShow Start
+            function ccHideOrShow(hideOrShow){
+                for (var i = 1; i <= 10; i++) {        
+                    for (var j = 1; j <= 10; j++) {
+                        if(hideOrShow == "none"){
+                            document.getElementById("ccc"+i+"-"+j).style.display = "inline";
+                            document.getElementById("cc"+i+"-"+j).style.display = "none";
+                            document.getElementById("ccHideButton").style.display = "none";
+                            document.getElementById("ccShowButton").style.display = "inline";
+                        }
+                        else if(hideOrShow == "inline"){
+                            document.getElementById("ccc"+i+"-"+j).style.display = "none";
+                            document.getElementById("cc"+i+"-"+j).style.display = "inline";
+                            document.getElementById("ccHideButton").style.display = "inline";
+                            document.getElementById("ccShowButton").style.display = "none";
+                        }
+                    }
+                }
+            }
+            //ccHideOrShow Finish
+            //ccShow Start
+            function ccShow(ccID){
+                document.getElementById(ccID).style.display = "inline";
+            }
+            //
+        </script>
+    </article>
+    <div style="clear: both;"></div>
+    <footer>
+        <a href="https://kutowo.com" target="_blank"><i class="icon-code"></i> Kutowo</a>
+        <a href="https://twitter.com/kutowo_official" target="_blank"><i class="icon-twitter"></i> Twitter</a>
+    </footer>
+</body>
+</html>
