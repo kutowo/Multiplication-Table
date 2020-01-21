@@ -1,2 +1,2 @@
-# Multiplication-Table
+# Multiplication Table
 Multiplication Table
